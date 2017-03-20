@@ -1,0 +1,25 @@
+dist: trusty
+sudo: required
+services:
+  - docker
+
+env:
+  global:
+  - DOCKER_VERSION=1.13.1-0~ubuntu-trusty
+  matrix:
+  - TEST_TARGET: kibana
+
+before_install:
+  # list docker-engine versions
+  - apt-cache madison docker-engine
+  # upgrade docker-engine to specific version
+  - sudo apt-get -o Dpkg::Options::="--force-confnew" install -y --force-yes docker-engine=${DOCKER_VERSION}
+  - docker version
+  - docker info
+
+script:
+  - make $TEST_TARGET
+
+notifications:
+  slack:
+    secure: hTpPIrBwDN0YpUV0bfYtqyzPLw7yv9/PPfd4uijmG/m0L+CkvnUp/52VD5n5EEectl+/kwxduAmm86V0BGa3CL48YVuyHmz5oGPSA0+ugTsrDikQqBk0ZVXjmtlrT5/V3mBs9TzI1FD76WQXZBxx2KkedEJ0ECu6cfse0SMM0M3vgsdC4mHl0OoGUpeqwu+nOtENgFP0hjH18GdFdTksEY8S7FKJU8sY4842Udlgy5dhlPuWRXhtohoFnKVMcX5nJ56M6FrhojOkA52de2RmxSaLtUiQnPXW1z4QynaBLYTTHuDKXWZ5sN/7FnayWNCQwwLi/xXQqQopSkYMkD1JYFwXxiKkfnKFODaiViTilFHsiLmLkivqaz5aJuwxMj5QxQy0xyK50L00c1FLGQopipNLFrO+NNQSCHte2evdolEfZ5iOoy+rcvEejlDuv3eaTOEzaEywk1S/VtBs/XfDBFF0Kpz3GqFzxvS3Ye4T/FA0TpQr+FYr6ghTwVSuM59A/giQM7HtqYgjKSLaH4GN+ZELyHeFLiRIVYjiS1nCYf5F65D1ooF3bVFNt4vNQBm+Z8FGJPqEdGZoXcIOKatfTk5f65rL3nfk+haxEJ+OAEAtswmBzS9L/XqP96bWhQ6wPUdW3XKTdWCAvacpA5UaeduLo5RoUlt0GHkpR6vV2is=
