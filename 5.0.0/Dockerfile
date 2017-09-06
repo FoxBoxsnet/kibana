@@ -6,7 +6,7 @@ ENV NODE_OPTIONS="--max-old-space-size=256"
 
 # install x-Pack
 RUN \
-    kibana-plugin install x-pack \
+    && kibana-plugin install x-pack \
     \
     && bin/kibana-plugin install --batch x-pack \
     && echo "### x-pack functions" >> /etc/kibana/kibana.yml \
