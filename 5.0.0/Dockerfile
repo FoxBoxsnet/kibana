@@ -14,5 +14,4 @@ RUN \
     && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.monitoring.enabled: true" >> /etc/kibana/kibana.yml \
     && echo "xpack.reporting.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.watcher.enabled: false" >> /etc/kibana/kibana.yml
+    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml
