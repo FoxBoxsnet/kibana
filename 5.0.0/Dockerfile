@@ -19,7 +19,7 @@ RUN \
     && echo "xpack.monitoring.enabled: true" >> /etc/kibana/kibana.yml \
     && echo "xpack.reporting.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml \
-    && chown -R kibana:kibana /path/to/kibana/optimize \
+    && chown -R kibana:kibana /usr/share/kibana/optimize \
     \
     # Clean up
     && apt-get clean \
