@@ -1,4 +1,4 @@
-FROM kibana:latest
+FROM kibana:5.5.2
 
 MAINTAINER Tokyo Home SOC <github@homesoc.tokyo>
 
