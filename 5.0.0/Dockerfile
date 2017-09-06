@@ -12,7 +12,7 @@ RUN \
     && apt-get install -y \
           tzdata \
     \
-    && bin/kibana-plugin install --batch x-pack \
+    && kibana-plugin install --batch x-pack \
     && echo "### x-pack functions" >> /etc/kibana/kibana.yml \
     && echo "xpack.graph.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
