@@ -17,14 +17,13 @@ RUN \
     && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.monitoring.enabled: true" >> /etc/kibana/kibana.yml \
     && echo "xpack.reporting.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml
-
-USER kibana
-RUN \
-       kibana-plugin install x-pack \
+    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml \
     # Clean up
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+USER kibana
+RUN kibana-plugin install x-pack
 
 
 # X-PACK installed `NODE_OPTIONS`
