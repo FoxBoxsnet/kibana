@@ -7,21 +7,12 @@ ENV TZ='Asia/Tokyo'
 USER root
 # install x-Pack
 RUN \
-    # TIMEZONE
-       apt update -y \
-    && apt upgrade -y \
-    && apt-get install -y \
-          tzdata \
-    \
-    && echo "### x-pack functions" >> /etc/kibana/kibana.yml \
+       echo "### x-pack functions" >> /etc/kibana/kibana.yml \
     && echo "xpack.graph.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.monitoring.enabled: true" >> /etc/kibana/kibana.yml \
     && echo "xpack.reporting.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml \
-    # Clean up
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml
 
 USER kibana
 
