@@ -14,16 +14,6 @@ USER kibana
 RUN kibana-plugin install x-pack
 
 USER root
-RUN \
-    # TIMEZONE
-       apt update -y \
-    && apt upgrade -y \
-    && apt-get install -y \
-          tzdata \
-    \
-    # Clean up
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # X-PACK installed `NODE_OPTIONS`
 ENV NODE_OPTIONS="--max-old-space-size=256"
