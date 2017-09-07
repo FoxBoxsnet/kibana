@@ -7,12 +7,12 @@ ENV TZ='Asia/Tokyo'
 USER root
 # install x-Pack
 RUN \
-       echo "### x-pack functions" >> /user/share/kibana/kibana.yml \
-    && echo "xpack.graph.enabled: false" >> /user/share/kibana/kibana.yml \
-    && echo "xpack.ml.enabled: false" >> /user/share/kibana/kibana.yml \
-    && echo "xpack.monitoring.enabled: true" >> /user/share/kibana/kibana.yml \
-    && echo "xpack.reporting.enabled: false" >> /user/share/kibana/kibana.yml \
-    && echo "xpack.security.enabled: false" >> /user/share/kibana/kibana.yml
+       echo "### x-pack functions" >> /usr/share/kibana/config/kibana.yml \
+    && echo "xpack.graph.enabled: false" >> /usr/share/kibana/config/kibana.yml \
+    && echo "xpack.ml.enabled: false" >> /usr/share/kibana/config/kibana.yml \
+    && echo "xpack.monitoring.enabled: true" >> /usr/share/kibana/config/kibana.yml \
+    && echo "xpack.reporting.enabled: false" >> /usr/share/kibana/config/kibana.yml \
+    && echo "xpack.security.enabled: false" >> /usr/share/kibana/config/kibana.yml
 
 USER kibana
 
