@@ -9,7 +9,7 @@ ENV TZ='Asia/Tokyo'
 USER kibana
 
 RUN \
-       gosu kibana-plugin install x-pack \
+       gosu kibna:kibna kibana-plugin install x-pack \
     && echo "### x-pack functions" >> /etc/kibana/kibana.yml \
     && echo "xpack.graph.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
