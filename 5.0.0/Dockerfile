@@ -13,7 +13,6 @@ RUN \
        echo "### x-pack functions" >> /etc/kibana/kibana.yml \
     && echo "xpack.graph.enabled: false" >> /etc/kibana/kibana.yml \
     && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.monitoring.enabled: true" >> /etc/kibana/kibana.yml \
     && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml
 
 # X-PACK installed `NODE_OPTIONS`
