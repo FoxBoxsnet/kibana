@@ -1,20 +1,20 @@
-FROM docker.elastic.co/kibana/kibana:5.5.2
+FROM kibana:5.5.2
 
 MAINTAINER HomeSOC <github@homesoc.tokyo>
 
 ENV TZ='Asia/Tokyo'
 
-USER root
 # install x-Pack
 RUN \
-       echo "### x-pack functions" >> /usr/share/kibana/config/kibana.yml \
-    && echo "xpack.graph.enabled: false" >> /usr/share/kibana/config/kibana.yml \
-    && echo "xpack.ml.enabled: false" >> /usr/share/kibana/config/kibana.yml \
-    && echo "xpack.monitoring.enabled: true" >> /usr/share/kibana/config/kibana.yml \
-    && echo "xpack.reporting.enabled: false" >> /usr/share/kibana/config/kibana.yml \
-    && echo "xpack.security.enabled: false" >> /usr/share/kibana/config/kibana.yml
+       echo "### x-pack functions" >> /etc/kibana/kibana.yml \
+    && echo "xpack.graph.enabled: false" >> /etc/kibana/kibana.yml \
+    && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
+    && echo "xpack.monitoring.enabled: true" >> /etc/kibana/kibana.yml \
+    && echo "xpack.reporting.enabled: false" >> /etc/kibana/kibana.yml \
+    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml
 
 USER kibana
+RUN kibana-plugin install x-pack
 
 # X-PACK installed `NODE_OPTIONS`
 ENV NODE_OPTIONS="--max-old-space-size=256"
