@@ -7,13 +7,5 @@ ENV TZ='Asia/Tokyo'
 USER kibana
 RUN kibana-plugin install x-pack
 
-# install x-Pack
-USER root
-RUN \
-       echo "### x-pack functions" >> /etc/kibana/kibana.yml \
-    && echo "xpack.graph.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.ml.enabled: false" >> /etc/kibana/kibana.yml \
-    && echo "xpack.security.enabled: false" >> /etc/kibana/kibana.yml
-
 # X-PACK installed `NODE_OPTIONS`
 ENV NODE_OPTIONS="--max-old-space-size=256"
