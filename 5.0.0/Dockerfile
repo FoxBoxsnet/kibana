@@ -1,6 +1,7 @@
-FROM kibana:5.5.2
+FROM kibana:5.6.4
 
-MAINTAINER HomeSOC <github@homesoc.tokyo>
+LABEL maintainer "Naoki Aoyama<github@homesoc.io>"
+LABEL Description="Kibana docker image" Vendor="HomeSOC Organization" Version="1.1"
 
 ENV TZ='Asia/Tokyo'
 ENV XPACK_GRAPH_ENABLED='false'
